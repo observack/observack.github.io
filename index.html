@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashish Devgan — Cyber Security Portfolio</title>
+<meta name="description" content="Cyber security portfolio — penetration testing, incident response, risk and governance, and machine learning for threat detection. University of Queensland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14;
+  --bg-raised:#111721;
+  --bg-card:#141b26;
+  --border:#1f2937;
+  --border-hover:#2dd4bf;
+  --text:#e5e9f0;
+  --text-dim:#94a3b8;
+  --text-faint:#64748b;
+  --accent:#2dd4bf;
+  --accent-dim:#14b8a6;
+  --amber:#fbbf24;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,14,20,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--accent);font-size:15px;text-decoration:none}
+.logo span{color:var(--text-faint)}
+.navlinks{display:flex;gap:28px;list-style:none}
+.navlinks a{color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.navlinks a:hover{color:var(--accent)}
+@media(max-width:640px){.navlinks{display:none}}
+
+/* ---------- hero ---------- */
+header{padding:96px 0 72px;border-bottom:1px solid var(--border)}
+.tag{
+  display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;
+  padding:5px 14px;margin-bottom:24px;letter-spacing:.03em;
+}
+h1{font-size:clamp(34px,6vw,58px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:20px}
+.lede{font-size:clamp(16px,2.2vw,19px);color:var(--text-dim);max-width:640px;margin-bottom:16px}
+.lede strong{color:var(--text);font-weight:600}
+.meta{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-faint);margin-top:28px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;
+  text-decoration:none;transition:all .2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#04211d}
+.btn-primary:hover{background:#5eead4}
+.btn-ghost{border-color:var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- sections ---------- */
+section{padding:80px 0;border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:44px}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:8px}
+h2{font-size:clamp(24px,3.5vw,32px);font-weight:700;letter-spacing:-.02em}
+.sec-sub{color:var(--text-dim);margin-top:10px;max-width:620px;font-size:15px}
+
+/* ---------- project cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:28px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.card h3{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;border-radius:4px;
+  white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;
+}
+.b-offensive{background:rgba(248,113,113,.12);color:#f87171}
+.b-defensive{background:rgba(96,165,250,.12);color:#60a5fa}
+.b-grc{background:rgba(251,191,36,.12);color:var(--amber)}
+.b-ml{background:rgba(167,139,250,.12);color:#a78bfa}
+.b-eng{background:rgba(45,212,191,.12);color:var(--accent)}
+.card p{color:var(--text-dim);font-size:14.5px;flex-grow:1;margin-bottom:20px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.chip{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);
+  background:var(--bg-raised);border:1px solid var(--border);border-radius:5px;padding:3px 8px;
+}
+.card a.repo{
+  color:var(--accent);text-decoration:none;font-size:13.5px;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;margin-top:auto;
+}
+.card a.repo:hover{gap:10px}
+.card a.repo svg{transition:transform .2s}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.skillcol h4{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;
+}
+.skillcol ul{list-style:none}
+.skillcol li{color:var(--text-dim);font-size:14px;padding:5px 0;border-bottom:1px solid var(--border)}
+.skillcol li:last-child{border-bottom:none}
+
+/* ---------- other work ---------- */
+.other{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.mini{background:var(--bg-raised);border:1px solid var(--border);border-radius:10px;padding:20px}
+.mini h4{font-size:15px;font-weight:600;margin-bottom:8px}
+.mini p{color:var(--text-faint);font-size:13.5px}
+
+/* ---------- capstone ---------- */
+.capstone{
+  background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:10px;padding:32px;
+}
+.capstone h3{font-size:20px;margin-bottom:6px}
+.capstone .org{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:16px}
+.capstone p{color:var(--text-dim);font-size:15px;margin-bottom:14px}
+.capstone p:last-child{margin-bottom:0}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0;text-align:center}
+footer p{color:var(--text-faint);font-size:14px}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.fnote{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);margin-top:20px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">observack<span>@github</span></a>
+    <ul class="navlinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#capstone">Capstone</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#other">Other</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="tag">Available for graduate roles</div>
+    <h1>Ashish Devgan</h1>
+    <p class="lede">Cyber security postgraduate working across <strong>offensive testing</strong>, <strong>incident response</strong> and <strong>risk governance</strong> — from exploiting a SCADA network to explaining the consequences to a board.</p>
+    <p class="meta">University of Queensland · Brisbane, Australia</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#work">View the work</a>
+      <a class="btn btn-ghost" href="https://github.com/observack">GitHub profile</a>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">01 — Featured work</div>
+      <h2>Projects</h2>
+      <p class="sec-sub">Five bodies of work spanning the technical and governance sides of security. Each links to a repository with the full write-up.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <h3>VAPT — Davros Industries</h3>
+          <span class="badge b-offensive">Offensive</span>
+        </div>
+        <p>A full penetration test against a mining company's corporate and SCADA/OT networks. Reconnaissance through exploitation, reported to executives in business terms rather than CVE numbers — including two live ethical incidents requiring legal research and disclosure decisions.</p>
+        <div class="stack">
+          <span class="chip">Nmap</span><span class="chip">Metasploit</span><span class="chip">Burp Suite</span>
+          <span class="chip">Wireshark</span><span class="chip">Hashcat</span><span class="chip">MODBUS/SCADA</span>
+        </div>
+        <a class="repo" href="https://github.com/observack/vapt-davros-industries">View repository →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>Incident Response Toolkit</h3>
+          <span class="badge b-defensive">Defensive</span>
+        </div>
+        <p>A complete IR program for critical infrastructure: capability proposal under the SOCI Act, a ransomware playbook built for forensic capture respecting order of volatility, and a tabletop exercise with injects and an after-action report that tested whether the playbook holds.</p>
+        <div class="stack">
+          <span class="chip">MITRE ATT&amp;CK</span><span class="chip">SOCI Act</span><span class="chip">C2M2</span>
+          <span class="chip">Volatility</span><span class="chip">Yara</span><span class="chip">CyberChef</span>
+        </div>
+        <a class="repo" href="https://github.com/observack/incident-response-toolkit">View repository →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>Security Risk &amp; Governance</h3>
+          <span class="badge b-grc">GRC</span>
+        </div>
+        <p>A TVRA with a quantified risk register calibrated from minor injury to loss of life, an ISO 27005 assessment mapped through the CIA triad, a NIST CSF advisory report written for a non-profit CEO, and a policy paper for a state Premier on legalising hack-back.</p>
+        <div class="stack">
+          <span class="chip">ISO 27005</span><span class="chip">NIST CSF</span><span class="chip">Risk Register</span>
+          <span class="chip">Residual Risk</span><span class="chip">Cyber Law</span>
+        </div>
+        <a class="repo" href="https://github.com/observack/security-risk-governance">View repository →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>ML for Threat Detection</h3>
+          <span class="badge b-ml">ML</span>
+        </div>
+        <p>Five machine learning systems against real security problems — payment fraud under severe class imbalance, phishing URLs, network intrusion on UNSW-NB15 with PCA and LDA, malware family clustering with Gaussian Mixture Models, and SVM spam classification.</p>
+        <div class="stack">
+          <span class="chip">scikit-learn</span><span class="chip">PCA / LDA</span><span class="chip">GMM</span>
+          <span class="chip">SVM</span><span class="chip">UNSW-NB15</span><span class="chip">VirusMNIST</span>
+        </div>
+        <a class="repo" href="https://github.com/observack/ml-threat-detection">View repository →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <h3>Systems Programming in C</h3>
+          <span class="badge b-eng">Engineering</span>
+        </div>
+        <p>A password entropy analyzer over hundred-million-entry breach corpora, a compression utility orchestrating external processes through pipes and signals, and a multi-threaded TCP chess server mediating concurrent clients against a single Stockfish engine.</p>
+        <div class="stack">
+          <span class="chip">C99</span><span class="chip">POSIX threads</span><span class="chip">Pipes &amp; Signals</span>
+          <span class="chip">TCP Sockets</span><span class="chip">AVR Embedded</span>
+        </div>
+        <a class="repo" href="https://github.com/observack/systems-programming-c">View repository →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="capstone">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">02 — Industry experience</div>
+      <h2>Capstone</h2>
+    </div>
+    <div class="capstone">
+      <h3>Security Advisor</h3>
+      <div class="org">IDcare — Australia &amp; New Zealand's national identity and cyber support service</div>
+      <p>Served as Security Advisor on an R&amp;D project researching social engineering and scam tactics across Facebook and Instagram, then developing practical account recovery plans and mitigation strategies for victims of online fraud.</p>
+      <p>Working with a national support service meant the output had to be usable by people already in distress, not just technically correct. Recovery guidance that assumes a calm, technically literate reader fails exactly when it's needed. That constraint shaped how I write security guidance now.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">03 — Capability</div>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills">
+      <div class="skillcol">
+        <h4>Offensive</h4>
+        <ul>
+          <li>Nmap · network enumeration</li>
+          <li>Metasploit · exploitation</li>
+          <li>Burp Suite · web app testing</li>
+          <li>Nessus · vulnerability scanning</li>
+          <li>John the Ripper · Hashcat</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>Defensive &amp; Forensic</h4>
+        <ul>
+          <li>Volatility · memory forensics</li>
+          <li>Wireshark · traffic analysis</li>
+          <li>CyberChef · Yara rules</li>
+          <li>Timeline &amp; hash analysis</li>
+          <li>Static &amp; dynamic malware analysis</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>Frameworks</h4>
+        <ul>
+          <li>MITRE ATT&amp;CK</li>
+          <li>NIST Cybersecurity Framework</li>
+          <li>ISO 27005</li>
+          <li>C2M2</li>
+          <li>SOCI Act · Australian cyber law</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>Engineering</h4>
+        <ul>
+          <li>C · Python · SQL · Bash · Scala</li>
+          <li>Docker · Docker Compose · Nginx</li>
+          <li>Apache Spark · MariaDB · Redis</li>
+          <li>scikit-learn · pandas · NumPy</li>
+          <li>Git · AVR embedded C</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="other">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">04 — Additional</div>
+      <h2>Other work</h2>
+      <p class="sec-sub">Further projects across cloud, data and software engineering.</p>
+    </div>
+    <div class="other">
+      <div class="mini">
+        <h4>Cloud &amp; Container Orchestration</h4>
+        <p>Dockerised Nginx/PHP-FPM stack with health checks, plus a five-container Docker Compose deployment across MariaDB, Redis, PHP-FPM, Nginx and phpMyAdmin.</p>
+      </div>
+      <div class="mini">
+        <h4>Big Data with Apache Spark</h4>
+        <p>Distributed analysis of the UN General Debates corpus using Spark RDD transformations and actions for verb frequency and document similarity.</p>
+      </div>
+      <div class="mini">
+        <h4>Relational Database Application</h4>
+        <p>Full lifecycle database build — domain modelling, schema design, implementation, population and complex SQL to drive application functionality.</p>
+      </div>
+      <div class="mini">
+        <h4>Software Engineering — Python</h4>
+        <p>Text-based and tkinter GUI games built on the Model-View-Controller pattern, with the model layer reused across implementations.</p>
+      </div>
+      <div class="mini">
+        <h4>Research — Cybercrime &amp; COVID-19</h4>
+        <p>Academic paper analysing pandemic impacts on global cybercrime trends, with recommendations for future prevention strategy.</p>
+      </div>
+      <div class="mini">
+        <h4>Research — AI in Cybersecurity</h4>
+        <p>IEEE-format technical paper on automation and AI for cybersecurity, covering research trends in threat detection and security operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Open to graduate roles in penetration testing, incident response, security analysis and GRC.</p>
+    <p style="margin-top:12px"><a href="https://github.com/observack">github.com/observack</a></p>
+    <p class="fnote">Built and hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+</body>
+</html>
